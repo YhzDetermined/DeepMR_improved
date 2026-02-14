@@ -1,0 +1,9 @@
+learning_rate: 0.003319113868685506
+    max_depth: 7
+    min_child_weight: 3.094437476744992
+    subsample: 0.8412443903490188
+    colsample_bytree: 0.7145449816703057
+    colsample_bylevel: 0.7511458828838696
+    gamma: 0.0036391625696851385
+    lambda: 0.003212289675597624
+    alpha: 0.0006303221810179706
