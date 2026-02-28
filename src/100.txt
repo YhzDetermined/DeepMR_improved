@@ -1,0 +1,560 @@
+已执行5%变异体
+已执行10%变异体
+已执行15%变异体
+已执行20%变异体
+已执行25%变异体
+已执行30%变异体
+已执行35%变异体
+已执行40%变异体
+已执行45%变异体
+已执行50%变异体
+已执行55%变异体
+已执行60%变异体
+已执行65%变异体
+已执行70%变异体
+已执行75%变异体
+已执行80%变异体
+已执行85%变异体
+model 44755431: Mutation generation took 80.21772122383118 seconds
+model 44755431: Test case splitting took 21.24688959121704 seconds
+model 44755431: Mutation execution took 1958.5827181339264 seconds
+model 44755431: DeepMPrior selected 407 mutants of 687 mutants, among them 48 turned out to be non-viable
+已执行5%变异体
+已执行10%变异体
+已执行15%变异体
+已执行20%变异体
+已执行25%变异体
+已执行30%变异体
+已执行35%变异体
+已执行40%变异体
+已执行45%变异体
+已执行50%变异体
+已执行55%变异体
+已执行60%变异体
+已执行65%变异体
+已执行70%变异体
+已执行75%变异体
+已执行80%变异体
+已执行85%变异体
+已执行90%变异体
+已执行95%变异体
+已执行100%变异体
+model 44758894: Mutation generation took 6.377692937850952 seconds
+model 44758894: Test case splitting took 3.229868173599243 seconds
+model 44758894: Mutation execution took 84.3677773475647 seconds
+model 44758894: DeepMPrior selected 140 mutants of 188 mutants, among them 0 turned out to be non-viable
+已执行5%变异体
+已执行10%变异体
+已执行15%变异体
+已执行20%变异体
+已执行25%变异体
+已执行30%变异体
+已执行35%变异体
+已执行40%变异体
+已执行45%变异体
+已执行50%变异体
+已执行55%变异体
+已执行60%变异体
+已执行65%变异体
+已执行70%变异体
+已执行75%变异体
+已执行80%变异体
+已执行85%变异体
+已执行90%变异体
+已执行95%变异体
+已执行100%变异体
+model 46869312: Mutation generation took 44.25802755355835 seconds
+model 46869312: Test case splitting took 7.089199066162109 seconds
+model 46869312: Mutation execution took 1001.329204082489 seconds
+model 46869312: DeepMPrior selected 274 mutants of 808 mutants, among them 0 turned out to be non-viable
+已执行5%变异体
+已执行10%变异体
+已执行15%变异体
+已执行20%变异体
+已执行25%变异体
+已执行30%变异体
+已执行35%变异体
+已执行40%变异体
+已执行45%变异体
+已执行50%变异体
+已执行55%变异体
+已执行60%变异体
+已执行65%变异体
+已执行70%变异体
+已执行75%变异体
+已执行80%变异体
+已执行85%变异体
+已执行90%变异体
+已执行95%变异体
+已执行100%变异体
+model 48976413: Mutation generation took 10.939601182937622 seconds
+model 48976413: Test case splitting took 5.625488519668579 seconds
+model 48976413: Mutation execution took 132.32539176940918 seconds
+model 48976413: DeepMPrior selected 184 mutants of 200 mutants, among them 0 turned out to be non-viable
+已执行5%变异体
+已执行10%变异体
+已执行15%变异体
+已执行20%变异体
+已执行25%变异体
+已执行30%变异体
+已执行35%变异体
+已执行40%变异体
+已执行45%变异体
+已执行50%变异体
+已执行55%变异体
+已执行60%变异体
+已执行65%变异体
+已执行70%变异体
+已执行75%变异体
+已执行80%变异体
+已执行85%变异体
+已执行90%变异体
+已执行95%变异体
+已执行100%变异体
+model 53749895: Mutation generation took 185.78951334953308 seconds
+model 53749895: Test case splitting took 8.937963724136353 seconds
+model 53749895: Mutation execution took 245.2876238822937 seconds
+model 53749895: DeepMPrior selected 135 mutants of 311 mutants, among them 0 turned out to be non-viable
+已执行5%变异体
+已执行10%变异体
+已执行15%变异体
+已执行20%变异体
+已执行25%变异体
+已执行30%变异体
+已执行35%变异体
+已执行40%变异体
+已执行45%变异体
+已执行50%变异体
+已执行55%变异体
+已执行60%变异体
+已执行65%变异体
+已执行70%变异体
+已执行75%变异体
+已执行80%变异体
+已执行85%变异体
+已执行90%变异体
+model 55198221: Mutation generation took 141.09038972854614 seconds
+model 55198221: Test case splitting took 16.572325229644775 seconds
+model 55198221: Mutation execution took 370.1225199699402 seconds
+model 55198221: DeepMPrior selected 459 mutants of 1175 mutants, among them 29 turned out to be non-viable
+已执行5%变异体
+已执行10%变异体
+已执行15%变异体
+已执行20%变异体
+已执行25%变异体
+已执行30%变异体
+已执行35%变异体
+已执行40%变异体
+已执行45%变异体
+已执行50%变异体
+已执行55%变异体
+已执行60%变异体
+已执行65%变异体
+已执行70%变异体
+已执行75%变异体
+已执行80%变异体
+已执行85%变异体
+已执行90%变异体
+已执行95%变异体
+已执行100%变异体
+model 56774954: Mutation generation took 85.02307629585266 seconds
+model 56774954: Test case splitting took 3.316033363342285 seconds
+model 56774954: Mutation execution took 353.8240256309509 seconds
+model 56774954: DeepMPrior selected 488 mutants of 1496 mutants, among them 0 turned out to be non-viable
+已执行5%变异体
+已执行10%变异体
+已执行15%变异体
+已执行20%变异体
+已执行25%变异体
+已执行30%变异体
+已执行35%变异体
+已执行40%变异体
+已执行45%变异体
+已执行50%变异体
+已执行55%变异体
+已执行60%变异体
+已执行65%变异体
+已执行70%变异体
+已执行75%变异体
+已执行80%变异体
+已执行85%变异体
+已执行90%变异体
+已执行95%变异体
+已执行100%变异体
+model 57326611: Mutation generation took 18.410401821136475 seconds
+model 57326611: Test case splitting took 4.850783109664917 seconds
+model 57326611: Mutation execution took 313.60330414772034 seconds
+model 57326611: DeepMPrior selected 157 mutants of 437 mutants, among them 0 turned out to be non-viable
+已执行5%变异体
+已执行10%变异体
+已执行15%变异体
+已执行20%变异体
+已执行25%变异体
+已执行30%变异体
+已执行35%变异体
+已执行40%变异体
+已执行45%变异体
+已执行50%变异体
+已执行55%变异体
+已执行60%变异体
+已执行65%变异体
+已执行70%变异体
+已执行75%变异体
+已执行80%变异体
+已执行85%变异体
+已执行90%变异体
+已执行95%变异体
+已执行100%变异体
+model 58051767: Mutation generation took 11.051961898803711 seconds
+model 58051767: Test case splitting took 3.0785200595855713 seconds
+model 58051767: Mutation execution took 132.9304530620575 seconds
+model 58051767: DeepMPrior selected 184 mutants of 200 mutants, among them 0 turned out to be non-viable
+已执行5%变异体
+已执行10%变异体
+已执行15%变异体
+已执行20%变异体
+已执行25%变异体
+已执行30%变异体
+已执行35%变异体
+已执行40%变异体
+已执行45%变异体
+已执行50%变异体
+已执行55%变异体
+已执行60%变异体
+已执行65%变异体
+已执行70%变异体
+已执行75%变异体
+已执行80%变异体
+已执行85%变异体
+已执行90%变异体
+已执行95%变异体
+model 58844149: Mutation generation took 405.7334108352661 seconds
+model 58844149: Test case splitting took 18.077856302261353 seconds
+model 58844149: Mutation execution took 1366.3837840557098 seconds
+model 58844149: DeepMPrior selected 850 mutants of 2530 mutants, among them 29 turned out to be non-viable
+已执行5%变异体
+已执行10%变异体
+已执行15%变异体
+已执行20%变异体
+已执行25%变异体
+已执行30%变异体
+已执行35%变异体
+已执行40%变异体
+已执行45%变异体
+已执行50%变异体
+已执行55%变异体
+已执行60%变异体
+已执行65%变异体
+已执行70%变异体
+已执行75%变异体
+已执行80%变异体
+已执行85%变异体
+已执行90%变异体
+已执行95%变异体
+已执行100%变异体
+model 59078187: Mutation generation took 49.97082448005676 seconds
+model 59078187: Test case splitting took 3.2519185543060303 seconds
+model 59078187: Mutation execution took 218.95865964889526 seconds
+model 59078187: DeepMPrior selected 409 mutants of 1125 mutants, among them 0 turned out to be non-viable
+已执行5%变异体
+已执行10%变异体
+已执行15%变异体
+已执行20%变异体
+已执行25%变异体
+已执行30%变异体
+已执行35%变异体
+已执行40%变异体
+已执行45%变异体
+已执行50%变异体
+已执行55%变异体
+已执行60%变异体
+已执行65%变异体
+已执行70%变异体
+已执行75%变异体
+已执行80%变异体
+已执行85%变异体
+已执行90%变异体
+model 60874661: Mutation generation took 47.113314151763916 seconds
+model 60874661: Test case splitting took 12.157130241394043 seconds
+model 60874661: Mutation execution took 134.5155599117279 seconds
+model 60874661: DeepMPrior selected 324 mutants of 682 mutants, among them 29 turned out to be non-viable
+已执行5%变异体
+已执行10%变异体
+已执行15%变异体
+已执行20%变异体
+已执行25%变异体
+已执行30%变异体
+已执行35%变异体
+已执行40%变异体
+已执行45%变异体
+已执行50%变异体
+已执行55%变异体
+已执行60%变异体
+已执行65%变异体
+已执行70%变异体
+已执行75%变异体
+已执行80%变异体
+已执行85%变异体
+已执行90%变异体
+已执行95%变异体
+已执行100%变异体
+model 60801900: Mutation generation took 331.8945767879486 seconds
+model 60801900: Test case splitting took 3.6912238597869873 seconds
+model 60801900: Mutation execution took 1259.4409093856812 seconds
+model 60801900: DeepMPrior selected 1093 mutants of 3417 mutants, among them 0 turned out to be non-viable
+已执行5%变异体
+已执行10%变异体
+已执行15%变异体
+已执行20%变异体
+已执行25%变异体
+已执行30%变异体
+已执行35%变异体
+已执行40%变异体
+已执行45%变异体
+已执行50%变异体
+已执行55%变异体
+已执行60%变异体
+已执行65%变异体
+已执行70%变异体
+已执行75%变异体
+已执行80%变异体
+已执行85%变异体
+已执行90%变异体
+已执行95%变异体
+已执行100%变异体
+model 61274792: Mutation generation took 285.84054589271545 seconds
+model 61274792: Test case splitting took 13.884379386901855 seconds
+model 61274792: Mutation execution took 5750.9351596832275 seconds
+model 61274792: DeepMPrior selected 405 mutants of 1121 mutants, among them 0 turned out to be non-viable
+已执行5%变异体
+已执行10%变异体
+已执行15%变异体
+已执行20%变异体
+已执行25%变异体
+已执行30%变异体
+已执行35%变异体
+已执行40%变异体
+已执行45%变异体
+已执行50%变异体
+已执行55%变异体
+已执行60%变异体
+已执行65%变异体
+已执行70%变异体
+已执行75%变异体
+已执行80%变异体
+已执行85%变异体
+已执行90%变异体
+已执行95%变异体
+model 61763616: Mutation generation took 19.92549967765808 seconds
+model 61763616: Test case splitting took 12.548577547073364 seconds
+model 61763616: Mutation execution took 219.85620427131653 seconds
+model 61763616: DeepMPrior selected 183 mutants of 231 mutants, among them 9 turned out to be non-viable
+已执行5%变异体
+已执行10%变异体
+已执行15%变异体
+已执行20%变异体
+已执行25%变异体
+已执行30%变异体
+已执行35%变异体
+已执行40%变异体
+已执行45%变异体
+已执行50%变异体
+已执行55%变异体
+已执行60%变异体
+已执行65%变异体
+已执行70%变异体
+已执行75%变异体
+已执行80%变异体
+已执行85%变异体
+已执行90%变异体
+model 62055783: Mutation generation took 104.12460279464722 seconds
+model 62055783: Test case splitting took 11.913691520690918 seconds
+model 62055783: Mutation execution took 1513.1511585712433 seconds
+model 62055783: DeepMPrior selected 341 mutants of 699 mutants, among them 34 turned out to be non-viable
+已执行5%变异体
+已执行10%变异体
+已执行15%变异体
+已执行20%变异体
+已执行25%变异体
+已执行30%变异体
+已执行35%变异体
+已执行40%变异体
+已执行45%变异体
+已执行50%变异体
+已执行55%变异体
+已执行60%变异体
+已执行65%变异体
+已执行70%变异体
+已执行75%变异体
+已执行80%变异体
+已执行85%变异体
+已执行90%变异体
+已执行95%变异体
+已执行100%变异体
+model 64395424: Mutation generation took 59.874757051467896 seconds
+model 64395424: Test case splitting took 3.057494878768921 seconds
+model 64395424: Mutation execution took 114.11169147491455 seconds
+model 64395424: DeepMPrior selected 364 mutants of 1080 mutants, among them 0 turned out to be non-viable
+已执行5%变异体
+已执行10%变异体
+已执行15%变异体
+已执行20%变异体
+已执行25%变异体
+已执行30%变异体
+已执行35%变异体
+已执行40%变异体
+已执行45%变异体
+已执行50%变异体
+已执行55%变异体
+已执行60%变异体
+已执行65%变异体
+已执行70%变异体
+已执行75%变异体
+已执行80%变异体
+已执行85%变异体
+已执行90%变异体
+已执行95%变异体
+model 66087653: Mutation generation took 184.04843592643738 seconds
+model 66087653: Test case splitting took 5.913254976272583 seconds
+model 66087653: Mutation execution took 608.5527935028076 seconds
+model 66087653: DeepMPrior selected 747 mutants of 2355 mutants, among them 2 turned out to be non-viable
+已执行5%变异体
+已执行10%变异体
+已执行15%变异体
+已执行20%变异体
+已执行25%变异体
+已执行30%变异体
+已执行35%变异体
+已执行40%变异体
+已执行45%变异体
+已执行50%变异体
+已执行55%变异体
+已执行60%变异体
+已执行65%变异体
+已执行70%变异体
+已执行75%变异体
+已执行80%变异体
+已执行85%变异体
+已执行90%变异体
+已执行95%变异体
+model 66602662: Mutation generation took 33.468549489974976 seconds
+model 66602662: Test case splitting took 3.2686703205108643 seconds
+model 66602662: Mutation execution took 214.0426163673401 seconds
+model 66602662: DeepMPrior selected 275 mutants of 499 mutants, among them 2 turned out to be non-viable
+已执行5%变异体
+已执行10%变异体
+已执行15%变异体
+已执行20%变异体
+已执行25%变异体
+已执行30%变异体
+已执行35%变异体
+已执行40%变异体
+已执行45%变异体
+已执行50%变异体
+已执行55%变异体
+已执行60%变异体
+已执行65%变异体
+已执行70%变异体
+已执行75%变异体
+已执行80%变异体
+已执行85%变异体
+已执行90%变异体
+已执行95%变异体
+已执行100%变异体
+model 68101077: Mutation generation took 62.474416732788086 seconds
+model 68101077: Test case splitting took 5.043000221252441 seconds
+model 68101077: Mutation execution took 798.3237104415894 seconds
+model 68101077: DeepMPrior selected 409 mutants of 1125 mutants, among them 0 turned out to be non-viable
+已执行5%变异体
+已执行10%变异体
+已执行15%变异体
+已执行20%变异体
+已执行25%变异体
+已执行30%变异体
+已执行35%变异体
+已执行40%变异体
+已执行45%变异体
+已执行50%变异体
+已执行55%变异体
+已执行60%变异体
+已执行65%变异体
+已执行70%变异体
+已执行75%变异体
+已执行80%变异体
+已执行85%变异体
+已执行90%变异体
+model 68321264: Mutation generation took 46.363834619522095 seconds
+model 68321264: Test case splitting took 21.33602213859558 seconds
+model 68321264: Mutation execution took 768.2089076042175 seconds
+model 68321264: DeepMPrior selected 274 mutants of 632 mutants, among them 26 turned out to be non-viable
+已执行5%变异体
+已执行10%变异体
+已执行15%变异体
+已执行20%变异体
+已执行25%变异体
+已执行30%变异体
+已执行35%变异体
+已执行40%变异体
+已执行45%变异体
+已执行50%变异体
+已执行55%变异体
+已执行60%变异体
+已执行65%变异体
+已执行70%变异体
+已执行75%变异体
+已执行80%变异体
+已执行85%变异体
+已执行90%变异体
+已执行95%变异体
+model 68751439: Mutation generation took 144.48025488853455 seconds
+model 68751439: Test case splitting took 3.2923777103424072 seconds
+model 68751439: Mutation execution took 421.5753583908081 seconds
+model 68751439: DeepMPrior selected 667 mutants of 2099 mutants, among them 2 turned out to be non-viable
+已执行5%变异体
+已执行10%变异体
+已执行15%变异体
+已执行20%变异体
+已执行25%变异体
+已执行30%变异体
+已执行35%变异体
+已执行40%变异体
+已执行45%变异体
+已执行50%变异体
+已执行55%变异体
+已执行60%变异体
+已执行65%变异体
+已执行70%变异体
+已执行75%变异体
+已执行80%变异体
+已执行85%变异体
+已执行90%变异体
+已执行95%变异体
+已执行100%变异体
+model 68773774: Mutation generation took 171.15490984916687 seconds
+model 68773774: Test case splitting took 3.8888731002807617 seconds
+model 68773774: Mutation execution took 338.19688415527344 seconds
+model 68773774: DeepMPrior selected 840 mutants of 2600 mutants, among them 0 turned out to be non-viable
+已执行5%变异体
+已执行10%变异体
+已执行15%变异体
+已执行20%变异体
+已执行25%变异体
+已执行30%变异体
+已执行35%变异体
+已执行40%变异体
+已执行45%变异体
+已执行50%变异体
+已执行55%变异体
+已执行60%变异体
+已执行65%变异体
+已执行70%变异体
+已执行75%变异体
+已执行80%变异体
+已执行85%变异体
+已执行90%变异体
+已执行95%变异体
+已执行100%变异体
+model 69787272: Mutation generation took 10.658162355422974 seconds
+model 69787272: Test case splitting took 3.1851532459259033 seconds
+model 69787272: Mutation execution took 79.22937369346619 seconds
+model 69787272: DeepMPrior selected 128 mutants of 296 mutants, among them 0 turned out to be non-viable

@@ -13,6 +13,7 @@ import sys
 import mutation_executor_v2
 from config import Config
 from config.Config import mut_file_path, isRecord
+import mutation_generator_v2
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 from ML_rank.Mutant_Prior import MutantPrior
@@ -48,14 +49,15 @@ if __name__ == '__main__':
     print("State 1 finish!")
     tmp_dict = os.path.join(base_dir, "result_dir", "mut_dict.json")
     mut_gen_tot_time = 0
+    # 根据配置决定日志文件的打开方式：1 为追加(a)，0 为覆盖写入(w)
+    log_mode = 'a' if Config.openLogType == 1 else 'w'
     # 读取 JSON 文件
-    with open('%d.txt' % int(fraction * 100), 'w') as out_file:
+    with open('%d.txt' % int(fraction * 100), log_mode) as out_file:
         if not os.path.isfile(mut_file_path) or not os.path.isfile(tmp_dict):
             if os.path.exists(mut_file_path):
                 os.remove(mut_file_path)
             start = time.time()
-            print(model_file)
-            mg = mutation_generator.MutationGenerator(model_file)
+            mg = mutation_generator_v2.MutationGeneratorV2(model_file)
             # mg.apply_del_layer()
             mg.apply_dup_layer()
             mg.apply_math_weight()
@@ -86,8 +88,8 @@ if __name__ == '__main__':
             end = time.time()
             #变异体生成时间
             mut_gen_tot_time = end - start
-            print('Mutation generation took %s seconds' % (end - start))
-            out_file.write('Mutation generation took %s seconds\n' % (end - start))
+            print('model %s: Mutation generation took %s seconds' % (model_name,end - start))
+            out_file.write('model %s: Mutation generation took %s seconds\n' % (model_name,end - start))
         else:
             print("Hello World!")
         #加载变异体的特征
@@ -104,7 +106,7 @@ if __name__ == '__main__':
         end = time.time()
         test_split_time = end - start
         print('Test case splitting took %s seconds' % (end - start))
-        out_file.write('Test case splitting took %s seconds\n' % (end - start))
+        out_file.write('model %s: Test case splitting took %s seconds\n' % (model_name, end - start))
         #将变异体特征存入表格中
         write_to_file(base_dir, mut_dict, passDict, s.loss_func)
         #得到所有特征
@@ -117,18 +119,18 @@ if __name__ == '__main__':
         # mt = mutation_executor.MutationExecutor(s, comparator)
         mt = mutation_executor_v2.NewMutationExecutor(s,comparator,layer_mutant_dict)
         mt.set_mutant_selection_fraction(fraction)
-        mtr = mt.test()
+        mtr = mt.test_v2()
         exeStat = mt.getExecutionStatistics()
         end = time.time()
         exeStat.setExecuteTime(end - start)
         exeStat.setGenerateTime(mut_gen_tot_time)
         exeStat.setSelectRatio(mutant_ratio)
         print('Mutation execution took %s seconds' % (end - start))
-        out_file.write('Mutation execution took %s seconds\n' % (end - start))
+        out_file.write('model %s: Mutation execution took %s seconds\n' % (model_name, end - start))
         print('DeepMPrior selected %d mutants of %d mutants, among them %d turned out to be non-viable'
               % (mt.get_select_mutants_count(),mt.get_mutants_total_count(), mt.get_non_viable_mutants_total_count()))
-        out_file.write('DeepMPrior selected %d mutants of %d mutants, among them %d turned out to be non-viable\n'
-              % (mt.get_select_mutants_count(),mt.get_mutants_total_count(), mt.get_non_viable_mutants_total_count()))
+        out_file.write('model %s: DeepMPrior selected %d mutants of %d mutants, among them %d turned out to be non-viable\n'
+              % (model_name, mt.get_select_mutants_count(),mt.get_mutants_total_count(), mt.get_non_viable_mutants_total_count()))
         print(mt.getLayerSus())
         if isRecord == 1:
             append_execution_statistic_to_csv(model_name,exeStat,Config.StatsFileName)
