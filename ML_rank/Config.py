@@ -1,3 +1,4 @@
+#提取特征后为常数的列
 constantColumns = ['nft_weight_nan_ratio_mean', 'nft_weight_nan_ratio_std', 'nft_weight_nan_ratio_skew',
                         'nft_weight_nan_ratio_median',
                         'nft_weight_nan_ratio_var', 'nft_weight_nan_ratio_sem', 'nft_weight_nan_ratio_max',

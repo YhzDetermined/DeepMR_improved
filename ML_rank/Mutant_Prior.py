@@ -4,13 +4,19 @@ from ML_rank import Config
 import xgboost as xgb
 import os
 import pickle
+from collections import defaultdict
 class MutantPrior:
-    def __init__(self, select_ratio,file_path):
+    def __init__(self, select_ratio,file_path,is_test = 0):
         self.select_ratio=select_ratio
         self.file_path=file_path
         self.selected_mutant_name = set()
         self.constantColumns=Config.constantColumns
         self.layer_mutant_dict = dict()
+        self.__is_test = is_test
+        self.__layer_mut_num = dict()
+        # 实验输出不同筛选比例的变异体
+        self.__layer_mut_detail_dict = defaultdict(dict)
+
 
 
     def process(self):
@@ -18,6 +24,7 @@ class MutantPrior:
         data = self.fix_feat_loss_func(data)
         df=self.dataPreprocess(data)
         X_test, mut_info_df = self.split_target(df)
+        # 统计每个 layer_id 的变异体数量，存入字典 layer_mut_num
         dtest = xgb.DMatrix(X_test)
         #加载XGBoost模型
         current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -26,10 +33,13 @@ class MutantPrior:
             model = pickle.load(f)
         y_pred = model.predict(dtest)
         res_df = self.concat_df(y_pred, mut_info_df)
+        self.__layer_mut_num = res_df['layer_id'].value_counts().to_dict()
+        print(self.__layer_mut_num)
         res_df = (res_df.groupby("layer_id", group_keys=False)
                   .apply(self.select_rows)
                   .reset_index(drop=True)
                   )
+        #转换为需要返回的字典
         self.df_to_mutant_set(res_df)
 
     def dataPreprocess(self,data):
@@ -91,6 +101,10 @@ class MutantPrior:
         return result
 
     def df_to_mutant_set(self, df):
+        cur_layer = ""
+        cur_layer_mut_num = 0
+        real_level = 1
+        level = 1
         for idx, row in df.iterrows():
             layer_str = str(row['layer_id'])
             neuron_str = str(row['neuron_idx'])
@@ -101,6 +115,28 @@ class MutantPrior:
             if layer_id not in self.layer_mutant_dict:
                 self.layer_mutant_dict[layer_id] = []
             self.layer_mutant_dict[layer_id].append(mutant_name_str)
+            if self.__is_test == 1:
+                if layer_str != cur_layer:
+                    cur_layer = layer_str
+                    cur_layer_mut_num = 1
+                    level = 1
+                    real_level = 1
+                else: 
+                    cur_layer = layer_str
+                    cur_layer_mut_num += 1
+                if  cur_layer_mut_num > self.__layer_mut_num[int(layer_str)] * real_level * 0.05:
+                    real_level += 1
+                    if cur_layer_mut_num >= 80:
+                        level = real_level
+                if level not in self.__layer_mut_detail_dict[layer_id]:
+                    self.__layer_mut_detail_dict[layer_id][level] = []
+                self.__layer_mut_detail_dict[layer_id][level].append(mutant_name_str)
+                    
+    def get_layer_mut_detail_dict(self):
+        return self.__layer_mut_detail_dict
+
+
+
 
     def getMutantSet(self):
         return self.selected_mutant_name
@@ -111,14 +147,20 @@ class MutantPrior:
 
 
 if __name__ == "__main__":
-    mutant_ratio = 1.0
-    base_dir = 'D:\\DeepMPrior\\Dataset\\all-bugs\\44758894'
-    mp_xgb = MutantPrior(select_ratio = mutant_ratio, file_path = os.path.join(base_dir, "all_summary.csv"))
+    mutant_ratio = 0.5
+    # base_dir = 'D:\\DeepMPrior\\Dataset\\all-bugs\\44758894'
+    base_dir = 'D:\\DeepMPrior\\Dataset\\all-bugs\\60874661'
+    mp_xgb = MutantPrior(select_ratio = mutant_ratio, file_path = os.path.join(base_dir, "all_summary.csv"),is_test = 1)
     mp_xgb.process()
     layer_mutant_dict = mp_xgb.getLayerMutantDict()
-    # print(layer_mutant_dict)
+    print(layer_mutant_dict)
     mt_set = mp_xgb.getMutantSet()
-    print(len(mt_set))
+    layer_mutant_detail_dict = mp_xgb.get_layer_mut_detail_dict()
+    for key,value in layer_mutant_detail_dict.items():
+        for k,v in value.items():
+            print(key,k,v)
+    print(layer_mutant_detail_dict)
+    # print(len(mt_set))
 
 
 

@@ -53,6 +53,7 @@ if __name__ == '__main__':
     log_mode = 'a' if Config.openLogType == 1 else 'w'
     # 读取 JSON 文件
     with open('%d.txt' % int(fraction * 100), log_mode) as out_file:
+        pass
         if not os.path.isfile(mut_file_path) or not os.path.isfile(tmp_dict):
             if os.path.exists(mut_file_path):
                 os.remove(mut_file_path)
@@ -92,7 +93,7 @@ if __name__ == '__main__':
             out_file.write('model %s: Mutation generation took %s seconds\n' % (model_name,end - start))
         else:
             print("Hello World!")
-        #加载变异体的特征
+    #     #加载变异体的特征
         with open(tmp_dict, 'r') as file:
             mut_dict = json.load(file)
         mut_dict = convert_keys_to_int(mut_dict)
@@ -112,14 +113,18 @@ if __name__ == '__main__':
         #得到所有特征
         print('Selected %2f%% of the mutants' % (mutant_ratio * 100))
         summary_Single(model_dir=base_dir,isclass=Isclass,model_type=s.getModelType())
-        mp_xgb=MutantPrior(select_ratio=mutant_ratio,file_path=os.path.join(base_dir,"all_summary.csv"))
+        mp_xgb=MutantPrior(select_ratio=mutant_ratio,file_path=os.path.join(base_dir,"all_summary.csv"),is_test=1)
         mp_xgb.process()
         layer_mutant_dict = mp_xgb.getLayerMutantDict()
+        layer_detail_dic = mp_xgb.get_layer_mut_detail_dict()
         start = time.time()
         # mt = mutation_executor.MutationExecutor(s, comparator)
         mt = mutation_executor_v2.NewMutationExecutor(s,comparator,layer_mutant_dict)
-        mt.set_mutant_selection_fraction(fraction)
-        mtr = mt.test_v2()
+        mt.set_mutant_ext_info(model_name=model_name,fraction=fraction,select_ratio = mutant_ratio)
+        mt.set_layer_detail_dict(layer_detail_dic)
+        # mtr = mt.test_v2()
+        # 做实验运行test_v3()
+        mtr = mt.test_v3()
         exeStat = mt.getExecutionStatistics()
         end = time.time()
         exeStat.setExecuteTime(end - start)

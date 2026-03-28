@@ -58,4 +58,6 @@ class ClassificationComparator(Comparator):
             return argmax(expected) == round(actual)
         if len(expected) != len(actual):
             return False
+        if expected.size == 1 and actual.size == 1:
+            return round(expected.item()) == round(actual.item())
         return argmax(expected) == argmax(actual)
