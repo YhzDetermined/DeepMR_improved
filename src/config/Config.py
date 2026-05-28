@@ -11,14 +11,13 @@ ExeStatsRows = [
 ]
 # 是否将结果记录到csv文件中
 # 跑实验时请将下面的配置设置为1，如果只是简单测试，请设置为0
-isRecord = 1
-# -
+isRecord = 0
 #记录执行策略下测试执行结果的文件
 StatsFileName = "ExeResult.csv"
 #存放变异体的文件位置（不压缩的 tar，便于大文件快速读写）
-# mut_file_path = './workdir.tar'
+mut_file_path = './workdir.tar'
 # 跑实验时请改成下面的配置
-mut_file_path = 'E://workdir.tar'
+# mut_file_path = 'E://workdir.tar'
 #错误定位结束后是否删除变异体
 deleteMutFile = True
 # deleteMutFile = False

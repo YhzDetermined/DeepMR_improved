@@ -14,6 +14,7 @@ import mutation_executor_v2
 from config import Config
 from config.Config import mut_file_path, isRecord
 import mutation_generator_v2
+import mutation_executor_v3
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 from ML_rank.Mutant_Prior import MutantPrior
@@ -117,7 +118,12 @@ if __name__ == '__main__':
         layer_mutant_dict = mp_xgb.getLayerMutantDict()
         start = time.time()
         # mt = mutation_executor.MutationExecutor(s, comparator)
-        mt = mutation_executor_v2.NewMutationExecutor(s,comparator,layer_mutant_dict)
+        #采用第二种执行优化策略
+        # mt = mutation_executor_v2.NewMutationExecutor(s,comparator,layer_mutant_dict)
+        # mt.set_mutant_selection_fraction(fraction)
+        # mtr = mt.test_v2()
+        # 采用第一种执行优化策略
+        mt = mutation_executor_v3.NewMutationExecutorV3(s, comparator, layer_mutant_dict)
         mt.set_mutant_selection_fraction(fraction)
         mtr = mt.test_v2()
         exeStat = mt.getExecutionStatistics()
