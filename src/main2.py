@@ -125,6 +125,7 @@ if __name__ == '__main__':
         # 采用第一种执行优化策略
         mt = mutation_executor_v3.NewMutationExecutorV3(s, comparator, layer_mutant_dict)
         mt.set_mutant_selection_fraction(fraction)
+        mt.model_name = model_name
         mtr = mt.test_v2()
         exeStat = mt.getExecutionStatistics()
         end = time.time()

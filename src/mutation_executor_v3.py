@@ -1,3 +1,5 @@
+import csv
+
 from element_mutation_exec_info import ElementMutationExecInfo
 import tensorflow as tf
 from keras.models import load_model
@@ -42,6 +44,8 @@ class NewMutationExecutorV3:
         self.layer_sus = dict()
         self.cur_layer_sus = None
         self.__exeRecord = ExecutionStatistic()
+        self.mtp = 0
+        self.exe_time = 0
         self.CaseNotExecuteNum = 0  # 没有被运行的测试用例数
         self.MutantNotExecuteAllNum = 0  # 没有执行所有测试用例的变异体数量
 
@@ -59,6 +63,7 @@ class NewMutationExecutorV3:
         n_f2p = 0
         n_i_f = 0
         if len(self.__failing_test_inputs) > 0:
+            self.mtp += len(self.__failing_test_inputs)
             p = model.predict(self.__failing_test_inputs)
             for i in range(0, len(p)):
                 actual = p[i]
@@ -82,6 +87,7 @@ class NewMutationExecutorV3:
     def __exec_mutant_pass(self, model, m_info: MutantExecInfo):
         n_i_p = 0
         if len(self.__passing_test_inputs) > 0:
+            self.mtp += len(self.__passing_test_inputs)
             p = model.predict(self.__passing_test_inputs)
             for i in range(0, len(p)):
                 actual = p[i]
@@ -91,48 +97,6 @@ class NewMutationExecutorV3:
                     n_i_p = n_i_p + 1
         m_info.real_sus = m_info.a_k_f/math.sqrt(float(len(self.__failing_test_inputs)) * float(m_info.a_k_f + n_i_p))
 
-    # def __exec_mutant(self, model):
-    #     n_f2p = 0
-    #     n_p2f = 0
-    #     n_i_p = 0
-    #     n_i_f = 0
-    #     if len(self.__failing_test_inputs) > 0:
-    #         p = model.predict(self.__failing_test_inputs)
-    #         for i in range(0, len(p)):
-    #             actual = p[i]
-    #             expected = self.__failing_test_old[i]
-    #             if not self.__comparator.compare(expected, actual):
-    #                 n_i_f = n_i_f + 1
-    #             expected = self.__failing_test_expected[i]
-    #             if self.__comparator.compare(expected, actual):
-    #                 # self.__f2p_inputs.add(hash(self.__failing_test_inputs[i].tobytes()))
-    #                 n_f2p = n_f2p + 1
-    #     #     根据ochiai公式计算出变异体怀疑度上界
-    #     if len(self.__failing_test_inputs) == 0 or n_f2p == 0:
-    #         sus0 = 0.0
-    #     else:
-    #         sus0 = float(n_f2p) / math.sqrt(float(len(self.__failing_test_inputs)) * float(n_f2p))
-    #     if sus0 <= self.cur_layer_sus:
-    #         self.CaseNotExecuteNum += len(self.__passing_test_inputs)
-    #         if len(self.__passing_test_inputs) > 0:
-    #             self.MutantNotExecuteAllNum += 1
-    #         return
-    #     if len(self.__passing_test_inputs) > 0:
-    #         p = model.predict(self.__passing_test_inputs)
-    #         for i in range(0, len(p)):
-    #             actual = p[i]
-    #             expected = self.__passing_test_outputs[i]
-    #             if not self.__comparator.compare(expected, actual):
-    #                 # self.__p2f_inputs.add(hash(self.__passing_test_inputs[i].tobytes()))
-    #                 n_p2f = n_p2f + 1
-    #                 n_i_p = n_i_p + 1
-    #         if len(self.__failing_test_inputs) == 0 or n_i_f + n_i_p == 0:
-    #             sus = 0.0
-    #         else:
-    #             sus = float(n_f2p) / math.sqrt(float(len(self.__failing_test_inputs)) * float(n_f2p + n_i_p))
-    #         self.cur_layer_sus = max(self.cur_layer_sus, sus)
-    #     if self.__debug:
-    #         print('n_f2p=%d, n_p2f=%d, n_i_p=%d, n_i_f%d' % (n_f2p, n_p2f, n_i_p, n_i_f))
 
     # 得到神经网络层的怀疑度
     def getLayerSus(self):
@@ -168,6 +132,7 @@ class NewMutationExecutorV3:
 
     # 应用基于怀疑度上界执行优化策略
     def test_v2(self):
+        start_time = time.time()
         os.environ['TF_GPU_ALLOCATOR'] = 'cuda_malloc_async'
         self.__passing_test_inputs = np.asarray(self.__test_case_splitter.get_passing_test_inputs())
         self.__passing_test_outputs = self.__test_case_splitter.get_passing_test_outputs()
@@ -262,7 +227,9 @@ class NewMutationExecutorV3:
 
                 # 将神经网络层的怀疑度设置为当前所有变异体怀疑度的最大值
                 self.layer_sus[layer_id] = self.cur_layer_sus
-        self.fill()
+        self.exe_time = time.time() - start_time
+        self.data_to_csv()
+
 
     def _log_progress(self, percentage: int):
         msg = '已执行%d%%变异体' % percentage
@@ -274,6 +241,18 @@ class NewMutationExecutorV3:
         except Exception:
             # 日志写入失败时不影响主流程
             pass
+
+    def data_to_csv(self):
+        filename = "执行优化情况.csv"
+        with open(filename, mode='a', newline='', encoding='utf-8') as file:
+            writer = csv.writer(file)
+            file_exists = os.path.isfile(filename)
+            # 如果文件不存在，先写入表头
+            if not file_exists:
+                writer.writerow(['模型名', '执行时间', 'mtp'])
+
+            # 写入数据
+            writer.writerow([self.model_name, self.exe_time, self.mtp])
         # try:
         #     with tarfile.open(mut_file_path, 'r') as arc:
         #         member = arc.getmember(mutant_name)
